@@ -11,11 +11,13 @@ var app = express();
 
 
 var mongoose = require('mongoose');
-var mongoDB = "mongodb+srv://okuninoshi:_mongoDB;@cluster0.scflb.mongodb.net/local_library?retryWrites=true&w=majority";
+var mongoDB = "mongodb+srv://okuninoshi:rSVB2FR6y6f4HZz@cluster0.scflb.mongodb.net/local_library?retryWrites=true&w=majority";
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
+db.once('open', function () {
+  console.log("we are connected");
+});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
