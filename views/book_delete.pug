@@ -5,17 +5,16 @@ block content
 
   if book_instances.length
 
-    p #[strong delete this book instances before you can delete this book]
+    p #[strong this book has instances, you can't delete it]
 
     div(style='margin-left:20px;margin-top:20px')
 
       h4 Book Instances
 
       dl
-      each bookInstances in book_instances
-        dt
-          a(href=book.url) #{book.title}
-        dd #{book.summary}
+      each bookInstance in book_instances
+        dt.my-2
+          a(href=bookInstance.url) #{bookInstance._id}
 
   else
     p Do you really want to delete this Book?
