@@ -175,7 +175,7 @@ exports.book_delete_get = function (req, res, next) {
 };
 
 // Handle book delete on POST.
-exports.book_delete_post = function (req, res) {
+exports.book_delete_post = function (req, res, next) {
     async.parallel({
         book: function (callback) {
             Book.findById(req.params.id).exec(callback)
